@@ -9,14 +9,14 @@ import { loginUser } from '../../redux/actions/userActions';
 
 const Login = () => {
   const initialValues = {
-    email: '',
+    emailAddress: '',
     password: ''
   };
 
   const dispatch = useDispatch();
 
   let loginSchema = yup.object().shape({
-    email: yup.string().email(),
+    emailAddress: yup.string().email('Login with a valid email'),
     password: yup.string()
   });
 
@@ -27,8 +27,10 @@ const Login = () => {
     <>
       <div className="form-wrapper">
         <h2 className="welcome-text">Welcome to FarmReach</h2>
+        <br />
         <div className="form-container">
-          <p>
+          <br />
+          <p className="login-text">
             <strong>Login</strong>
           </p>
           <div className="form">
@@ -44,16 +46,13 @@ const Login = () => {
               {({ errors, touched }) => (
                 <Form>
                   <div className="form-div">
-                    <span>
-                      <i className="fas fa-user login-icon"></i>
-                    </span>
-                    <Field type="email" className="form-control" id="email" name="email" placeholder="Email" />
-                    {errors.email && touched.email ? <div className="text-danger">{errors.email}</div> : null}
+                    <Field type="email" className="form-control" id="email" name="emailAddress" placeholder="Email" />
+                    <i className="fas fa-user login-icon"></i>
+                    {errors.email && touched.emailAddress ? (
+                      <div className="text-danger">{errors.emailAddress}</div>
+                    ) : null}
                   </div>
                   <div className="form-div">
-                    <span>
-                      <i className="fas fa-lock login-icon"></i>
-                    </span>
                     <Field
                       type="password"
                       className="form-control"
@@ -61,15 +60,18 @@ const Login = () => {
                       name="password"
                       placeholder="Password"
                     />
+                    <i className="fas fa-lock login-icon"></i>
                     {errors.password && touched.password ? <div className="text-danger">{errors.password}</div> : null}
                   </div>
                   <p className="forgot-password">
                     <Link to="/">Forgot Password</Link>
                   </p>
 
-                  <button type="submit" className="login-btn">
-                    Login
-                  </button>
+                  <div className="form-div">
+                    <button type="submit" className="login-btn">
+                      Login
+                    </button>
+                  </div>
 
                   <br />
                   <p>

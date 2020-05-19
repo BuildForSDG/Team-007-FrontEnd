@@ -6,6 +6,7 @@ $blackColor: #04070e;
 }
 
 .signup-form-wrapper {
+  margin-top: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,12 +14,14 @@ $blackColor: #04070e;
   align-items: center;
 
   .welcome-text {
-    font-weight: 500;
+    font-weight: 400;
     text-align: center;
+    margin: 5px 0px;
   }
 
   .form-container {
-    width: 80%;
+    width: 100%;
+    margin-top: 7px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,7 +40,7 @@ $blackColor: #04070e;
       top: 0;
       left: 0;
       right: 0;
-      height: 10px;
+      height: 7px;
       width: 100%;
       background: $greenColor;
       border-top-left-radius: 7px;
@@ -49,14 +52,10 @@ $blackColor: #04070e;
 .signup-form {
   padding: 7px;
   height: 100%;
-  width: 80%;
-  @include customShadow();
+  width: 90%;
 
   .form-div {
-    width: 98%;
-
-    margin: 8px 2px;
-
+    width: 100%;
     .form-control {
       width: 100%;
       height: 33px;
@@ -79,6 +78,9 @@ $blackColor: #04070e;
   height: 35px;
   //   margin-left: 15px;
   width: 100%;
+  margin-bottom: 8px;
+  margin-top: 10px;
+  @include customShadow();
 }
 
 .forgot-password {
@@ -89,11 +91,48 @@ $blackColor: #04070e;
 
 .form-div-checkbox {
   margin-bottom: 2rem;
+  margin-top: 10px;
   display: flex;
   align-items: center;
 
   .form-control-check {
     width: 15px;
     height: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .signup-form-wrapper {
+    .welcome-text {
+      font-weight: 400;
+      text-align: center;
+      margin: 5px 0px;
+    }
+
+    .form-container {
+      width: 95%;
+    }
+  }
+
+  .signup-form {
+    padding: 7px;
+    height: 100%;
+    width: 95%;
+
+    .form-div {
+      width: 100%;
+      .form-control {
+        width: 100%;
+        height: 33px;
+        margin: 8px 0px;
+        padding-left: 5px;
+        background: transparent;
+        border: 1px solid #d1cece;
+        border-radius: 4px;
+      }
+      .login-text {
+        text-align: center;
+      }
+    }
   }
 }

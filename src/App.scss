@@ -2,8 +2,16 @@ $greenColor: #209403;
 $yellowColor: #d39000;
 $blackColor: #04070e;
 
-.App {
-  text-align: center;
+*,
+*:hover,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  min-height: 60vh;
 }
 
 .App-logo {

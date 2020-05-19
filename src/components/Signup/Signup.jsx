@@ -11,7 +11,7 @@ const SignUp = () => {
   const initialValues = {
     firstName: '',
     lastName: '',
-    email: '',
+    emailAddress: '',
     phoneNumber: '',
     password: '',
     confirmPassword: ''
@@ -20,13 +20,13 @@ const SignUp = () => {
   const dispatch = useDispatch();
 
   let loginSchema = yup.object().shape({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    phoneNumber: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().required(),
-    confirmPassword: yup.string().required(),
-    termsAndCondition: yup.string().required()
+    firstName: yup.string().required('This is a required field'),
+    lastName: yup.string().required('This is a required field'),
+    phoneNumber: yup.string().required('This is a required field'),
+    emailAddress: yup.string().email().required('This is a required field'),
+    password: yup.string().required('This is a required field'),
+    confirmPassword: yup.string().required()
+    // termsAndCondition: yup.string().required()
   });
 
   const handleSubmit = (data) => {
@@ -40,6 +40,7 @@ const SignUp = () => {
           <p>
             <strong>Let's Get Started</strong>
           </p>
+          <br />
           <div className="signup-form">
             <Formik
               initialValues={initialValues}
@@ -63,8 +64,10 @@ const SignUp = () => {
                     {errors.lastName && touched.lastName ? <div className="text-danger">{errors.lastName}</div> : null}
                   </div>
                   <div className="form-div">
-                    <Field type="email" className="form-control" name="email" placeholder="Email" />
-                    {errors.email && touched.email ? <div className="text-danger">{errors.email}</div> : null}
+                    <Field type="email" className="form-control" name="emailAddress" placeholder="Email" />
+                    {errors.emailAddress && touched.emailAddress ? (
+                      <div className="text-danger">{errors.emailAddress}</div>
+                    ) : null}
                   </div>
                   <div className="form-div">
                     <Field type="tel" className="form-control" name="phoneNumber" placeholder="Phone Number" />
@@ -96,13 +99,14 @@ const SignUp = () => {
                   <button type="submit" className="signup-btn">
                     SIGN UP
                   </button>
+                  <br />
                   <p className="login-text">
                     {' '}
                     I already have an account &nbsp;
                     <Link to="/login">Login</Link>
                   </p>
 
-                  <div className="form-div-checkbox">
+                  {/* <div className="form-div-checkbox">
                     <Field
                       type="checkbox"
                       className="form-control-check"
@@ -111,7 +115,7 @@ const SignUp = () => {
                       placeholder="Confirm Password"
                     />
                     <label htmlFor="terms">I agree to the terms and conditions</label>
-                  </div>
+                  </div> */}
                 </Form>
               )}
             </Formik>
