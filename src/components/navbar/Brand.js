@@ -8,10 +8,6 @@ const Image = styled.img`
   margin: auto 0;
 `;
 
-const Brand = () => {
-  return (
-    <Image src={logo} alt="Farm Reach logo" />
-  );
-};
+const Brand = () => <Image src={logo} alt="Farm Reach logo" />;
 
 export default Brand;
