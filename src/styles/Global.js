@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStlyes = createGlobalStyle`
+const GlobalStlyes = createGlobalStyle`;
 
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
